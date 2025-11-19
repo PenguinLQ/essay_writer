@@ -1,30 +1,44 @@
 # Essay Writer Agent
-Essay Writer implemented using LangGraph.
+Multi-Agent Essay Writer Assistant implemented using LangGraph, Qwen3-Max, Tavily Agentic Search Tool, Gradio,
+
+## Features
+- Generate high quality 3 paragraph essay for any topic
+  - Use Planning pattern to generate outline and provide logical framework to draft the essay
+  - Use Tavily Agentic search tool to do research and ensure accurate and up-to-date information
+   - Use Reflection pattern for better quality essay
+- Support user to modify Plan, Draft, Critique during the process
+- Support lower level control of the Multi-Agent execution process
+- Easy to use GUI with Gradio
 
 
-## Architecture
-```mermaid
----
-config:
-  flowchart:
-    curve: linear
----
-graph TD;
-        __start__([<p>__start__</p>]):::first
-        planner(planner)
-        research_plan(research_plan)
-        generate(generate)
-        reflect(reflect)
-        research_critique(research_critique)
-        __end__([<p>__end__</p>]):::last
-        __start__ --> planner;
-        generate -.-> __end__;
-        generate -.-> reflect;
-        planner --> research_plan;
-        reflect --> research_critique;
-        research_critique --> generate;
-        research_plan --> generate;
-        classDef default fill:#f2f0ff,line-height:1.2
-        classDef first fill-opacity:0
-        classDef last fill:#bfb6fc
-```
+## Backend Architecture
+### Flow Chart
+![FlowChart](./docs/images/essay_writer.png)
+
+### Agent Prompts
+![AgentPrompts](./docs/images/essay_writer_prompt.png)
+
+## User Interface
+### Agent Tab
+![Agent](./docs/images/Agent.png)
+
+### Plan Tab
+![Plan](./docs/images/Plan.png)
+
+### Research Content Tab
+![Research](./docs/images/ResearchContent.png)
+
+### Draft Tab
+![Draft](./docs/images/Draft.png)
+
+### Critique Tab
+![Critique](./docs/images/Critique.png)
+
+### StateSnapShots Tab
+![StateSnapShots](./docs/images/StateSnapShots.png)
+
+## Quick Start Guide
+TO BE ADDED...
+
+## LICENSE
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE)
